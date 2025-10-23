@@ -16,51 +16,65 @@ export const Route = createFileRoute('/explore-data/')({
 // CUSTOMIZE: the filter definitions
 const filterConfigs: FilterConfig[] = [
   {
-    field: 'Discovery Method',
-    label: 'Discovery Method',
-    operator: 'contains-one-of',
-    filterComponent: 'CheckboxList',
-    filterProps: {
-      options: [
-        {
-          label: 'Astrometry',
-          value: 'Astrometry',
-        },
-        {
-          label: 'Disk Kinematics',
-          value: 'Disk Kinematics',
-        },
-        {
-          label: 'Eclipse Timing Variations',
-          value: 'Eclipse Timing Variations',
-        },
-        {
-          label: 'Imaging',
-          value: 'Imaging',
-        },
-        {
-          label: 'Microlensing',
-          value: 'Microlensing',
-        },
-        {
-          label: 'Radial Velocity',
-          value: 'Radial Velocity',
-        },
-        {
-          label: 'Transit',
-          value: 'Transit',
-        },
-      ],
-    },
-  },
-  {
-    field: 'Mass',
-    label: 'Mass',
+    field: 'identities',
+    label: 'Identities',
     operator: 'between-inclusive',
     filterComponent: 'RangeSlider',
     filterProps: {
       min: 0,
-      max: 10000,
+      max: 500,
+    },
+  },
+  {
+    field: 'coverage',
+    label: 'Coverage',
+    operator: 'between-inclusive',
+    filterComponent: 'RangeSlider',
+    filterProps: {
+      min: 0,
+      max: 500,
+    },
+  },
+  {
+    field: 'positives',
+    label: 'Positives',
+    operator: 'between-inclusive',
+    filterComponent: 'RangeSlider',
+    filterProps: {
+      min: 0,
+      max: 500,
+    },
+  },
+  {
+    field: 'score',
+    label: 'Score',
+    operator: 'between-inclusive',
+    filterComponent: 'RangeSlider',
+    filterProps: {
+      min: 0,
+      max: 1000,
+    },
+  },
+  {
+    field: 'evalue',
+    label: 'E-value',
+    operator: 'between-inclusive',
+    filterComponent: 'RangeSlider',
+    filterProps: {
+      min: 0,
+      max: 1,
+      step: 0.0001,
+    },
+  },
+  {
+    field: 'isPrimary',
+    label: 'Is Primary',
+    operator: 'between-inclusive',
+    filterComponent: 'RangeSlider',
+    filterProps: {
+      min: 0,
+      max: 1,
+      step: 1,
     },
   },
 ];
@@ -92,9 +106,9 @@ function DataExplorer() {
       <Box>
         <PageHeader
           // CUSTOMIZE: the page title
-          pageTitle="Explore Data App"
+          pageTitle="Explore Homologs"
           // CUSTOMIZE: the page description
-          description="Description of this app"
+          description="Browse and analyze transcript homolog data from Phytozome"
           sx={{
             marginBottom: 1,
             padding: 2,
